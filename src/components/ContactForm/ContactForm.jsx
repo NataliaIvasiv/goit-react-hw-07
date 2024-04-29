@@ -4,7 +4,7 @@ import { useDispatch} from "react-redux";
 
 import * as Yup from 'yup';
 import css from './ContactForm.module.css'
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 
 
 
@@ -28,7 +28,7 @@ const ContactForm = () => {
 
   const handleSubmit = ({name, number}, {resetForm}) => {
     const nameTrim = name.trim();
-    dispatch(addContact(nameTrim, number))
+    dispatch(addContact({name: nameTrim, number}))
     resetForm();
   }
   
